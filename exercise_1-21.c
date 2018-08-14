@@ -41,6 +41,8 @@ int getLine(char s[], int lim) {
     return i;
 }
 
+
+//TODO set up properly this function and find the right algorythm
 void entab(char s[], int len) {
     int i, j, spaces, state;
 
