@@ -1,4 +1,5 @@
 /*  Exercise number 1-21 of the book the C programming language by k&r
+    **NOT FINISHED**
     2018 Zambon Pietro */
 
 #include <stdio.h>
@@ -46,20 +47,24 @@ int getLine(char s[], int lim) {
 void entab(char s[], int len) {
     int i, j, spaces, state;
 
-    for (i = 0; i < len; ++i)
-        if (s[i] == ' ') {
+    state 
+    for (i = 0; i < len; ++i) {
+        if (s[i] == ' ' && state == OUT) {
+            s[i] = '\t';
             state = IN;
-            ++spaces;
-        } else if (state == IN) {
-            if (((i-1) % TABLEN) == 0) {
-                s[i-spaces-1] = '\t';
-                for (j = i-spaces; j < i; ++j){
-                    s[j] = s[j+6];
-                }
-            len -= spaces;
-            i -= spaces;
-            }
+        } else if (s[i] == ' ' && state == IN)  {
+            for (j = i; j < len; ++j)
+            s[j] = s[j+1];
         }
-            state = OUT;
+    }
+
+
+        for (i = 0; i < len; ++i) {
+            if (s[i] == '\t')
+                s[i] = 't';
+            if (s[i] == ' ')
+                s[i] = 's';
+
+        }
 
 }

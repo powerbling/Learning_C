@@ -16,7 +16,7 @@ int main() {
     char temp[MAXLINE];
 
 
-    while ((len = getLine(temp, MAXLINE))) {
+    while ((len = getLine(temp, MAXLINE)) > 0) {
         detab(temp, len);
         printf("%s", temp);
     }
