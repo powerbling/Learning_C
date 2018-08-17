@@ -1,4 +1,4 @@
-/*  Exercise number 1-22 of the book the C programming language by k&r
+/*  Exercise number 2-2 of the book the C programming language by k&r
     2018 Zambon Pietro */
 
 #include <stdio.h>
