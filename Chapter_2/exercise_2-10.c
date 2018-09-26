@@ -10,7 +10,7 @@ int lower (int c) {
 
 int main(int argc, char const *argv[]) {
     char stringa[] = "Una striNgA Di carAttErI";
-
+    
     int i = 0;
     while (stringa[i++] != '\0') {
         lower(stringa[i]);
