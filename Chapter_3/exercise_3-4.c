@@ -1,6 +1,11 @@
 /*  Exercise number 3-4 of the book the C programming language by k&r
     2018 Zambon Pietro */
 
+/*  The program example could not print the largest negative number
+    because it converted the whole number if it happened to be
+    negative. In this program the sign of the number is stored in
+    a variable and then only printed in the final string    */
+
 #include<stdio.h>
 #include<string.h>
 

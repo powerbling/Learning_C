@@ -1,40 +1,49 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
 
-#define MAXLINE 1000
+#define MAXLINE 250
 
-char pattern[] = "prova";
+void reverse(char s[]) {
+	int i, j, t;
 
-int getLine(char line[], int max) {
-    int c;
-    int i = 0;
-    while (--max > 0 && (c = getchar()) != EOF && c != '\n')
-        line[i++] = c;
-    if (c == '\n')
-        line[i++] = c;
-    line[i] = '\0';
-    return i;
+	for (j = 0; s[j] != '\0'; j++)
+		;
+	for (i = 0, --j; j > i; i++, j--) {
+		t = s[j];
+		s[j] = s[i];
+		s[i] = t;
+	}
 }
 
-int strrindex(const char s[], char t[]) {
-    int i, j, k;
-    for (i = 0; s[i] != '\0'; i++) {
-        for (j=i, k=0; t[k]!='\0' && s[j]==t[k]; j++, k++)
-            ;
-        if (k > 0 && t[k] == '\0')
-            return i;
-    }
-    return -1;
+void itob(int n, char s[], int b) {
+	int i, sign, r;
+
+	sign = n;
+	i = 0;
+	do {
+		r = n % b;
+		if (sign < 0)
+			r = -r;
+		s[i++] = (r > 9 ? (r-10 + 'A') : (r + '0'));
+	} while (n /= b);
+
+	if (sign < 0)
+		s[i++] = '-';
+	s[i] = '\0';
+
+	reverse(s);
 }
 
-int main(int argc, char const *argv[]) {
-    char line[MAXLINE];
-    int found = 0;
+int main(void) {
+	char converted[MAXLINE];
+    int number = 0, base = 0;
 
-    while (getLine(line, MAXLINE) > 0)
-        if (strrindex(line, pattern) >= 0) {
-            printf("%s\n", line);
-            found++;
-        }
-    return found;
+    printf("Inserire un numero intero");
+    scanf("%d", &number);
+    printf("Scegliere la base da convertire");
+    scanf("%n\n", &base);
+
+    itob(number, converted, base);
+    printf("Risultato: %s",converted);
+
+	return 0;
 }
